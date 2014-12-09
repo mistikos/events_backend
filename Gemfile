@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -24,7 +24,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -37,4 +36,39 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'devise'
+gem 'simple_form'
+gem "haml"
 
+group :development do
+  # gem 'dotenv-rails'
+  # gem 'quicklog'
+  gem 'quiet_assets'
+  # gem 'jazz_hands'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'spring',      '1.2.0'
+
+  # gem 'guard-livereload', require: false
+  # gem 'rack-livereload'
+  # gem 'guard-ctags-bundler'
+
+  # gem 'overcommit', require: false
+  # gem 'scss-lint', require: false
+end
+
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'pry-rails'
+  gem 'pry-rescue'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem "minitest-rails"
+  # gem 'minitest-reporters', '1.0.5'
+  # gem 'mini_backtrace',     '0.1.3'
+  # gem 'guard-minitest',     '2.3.1'
+end
