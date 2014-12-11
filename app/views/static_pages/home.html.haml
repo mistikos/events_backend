@@ -1,5 +1,8 @@
 - if admin_signed_in?
   = @events
 - else
-  %h1 Bienvenido a la pagina de inicio
+  %h1 Descripcion del producto
   = link_to "Login", new_admin_session_path
+  or
+  %p Contactenos:
+  %p contacto@example.com - 29093093
