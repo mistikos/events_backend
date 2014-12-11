@@ -29,6 +29,7 @@ module EventsBackend
       g.helper false
       g.assets false
       g.test_framework :minitest, spec: true, fixture: false
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
   end

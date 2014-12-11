@@ -1,0 +1,5 @@
+- if admin_signed_in?
+  = @events
+- else
+  %h1 Bienvenido a la pagina de inicio
+  = link_to "Login", new_admin_session_path
