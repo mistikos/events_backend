@@ -3,9 +3,14 @@
   %head
     %title EventsBackend
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
     - if admin_signed_in?
-      = link_to 'logout', destroy_admin_session_path, method: :delete
-    = yield
+      = render 'layouts/header'
+      .container
+        - flash.each do |message_type, message|
+          %div{class: "alert alert-#{message_type}"}= message
+        = yield
+    - else
+      = yield
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
