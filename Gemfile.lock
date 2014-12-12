@@ -203,6 +203,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker
+  haml
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails

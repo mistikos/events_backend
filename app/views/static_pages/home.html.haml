@@ -1,5 +1,5 @@
 - if admin_signed_in?
-  = @events
+  = render 'shared/feed_events'
 - else
   %h1 Descripcion del producto
   = link_to "Login", new_admin_session_path

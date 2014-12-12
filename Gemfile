@@ -38,6 +38,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'debugger', group: [:development, :test]
 gem 'devise'
 gem 'simple_form'
+gem 'haml'
 gem "haml-rails"
 
 group :development do
