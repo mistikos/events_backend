@@ -36,7 +36,7 @@ $border-radius-card: 4px;
 
       .icon-option{
         font-size: 18px;
-        font-weight: 300;
+        font-weight: 400;
       }
 
       .participant:before{
@@ -45,6 +45,10 @@ $border-radius-card: 4px;
 
       .company:before{
         content: url('icons/company.png');
+      }
+
+      .recepcionist:before{
+        content: url('icons/recepcionist.png');
       }
 
       .icon-text{
@@ -142,6 +146,10 @@ $border-radius-card: 4px;
 
   &.active{
     border-top: 10px solid rgb(24, 211, 119);
+  }
+
+  &.inactive{
+    border-top: 10px solid #FF8F81;
   }
   .event-show-link{
     color: rgba(121, 121, 121, 0.8);

@@ -6,11 +6,12 @@
   .location_event
     = f.input :address, input_html: {data: {geo: 'formatted_address'}, class: 'location'}
     / = f.input :country, input_html: {data: {geo: 'country'}, class: 'location'}
-    = f.input :state, input_html: {data: {geo: 'administrative_area_level_1'}, class: 'location'}
-    = f.input :locality, input_html: {data: {geo: 'locality'}, class: 'location'}
-    = f.input :longitude, input_html: {data: {geo: 'lng'}, class: 'location'}
-    = f.input :latitude, input_html: {data: {geo: 'lat'}, class: 'location'}
+    = f.input :state, input_html: {data: {geo: 'administrative_area_level_1'}, class: 'location'}, as: :hidden
+    = f.input :locality, input_html: {data: {geo: 'locality'}, class: 'location'}, as: :hidden
+    = f.input :longitude, input_html: {data: {geo: 'lng'}, class: 'location'}, as: :hidden
+    = f.input :latitude, input_html: {data: {geo: 'lat'}, class: 'location'}, as: :hidden
   = f.input :place
+  = f.input :description
   #my_map
   = f.submit 'Crear', class: 'btn btn-primary'
   %button.btn Cancelar

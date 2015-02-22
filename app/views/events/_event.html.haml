@@ -20,17 +20,18 @@
     .row
       .col-sm-4.col
         %span.participant.icon-option
-          12
+          = event.clients.size
         %span.icon-text
           Invitados
 
       .col-sm-4.middle.col
         %span.company.icon-option
-          2
+          = event.companies.size
         %span.icon-text
           Organizadores
+
       .col-sm-4.col
-        %span.participant.icon-option
+        %span.recepcionist.icon-option
           12
         %span.icon-text
-          Invitados
+          Recepcionistas

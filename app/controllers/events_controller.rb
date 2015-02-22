@@ -13,7 +13,9 @@ class EventsController < ApplicationController
 
   def create
     @event = current_admin.events.new(params_event)
+    @event.company_id = current_admin.company_id
     if @event.save
+      @event.participants.create(company_id: current_admin.company_id)
       flash[:success] = "Event created!"
       redirect_to @event
     else
@@ -23,7 +25,8 @@ class EventsController < ApplicationController
 
 
   private
+
   def params_event
-    params.require(:event).permit(:name, :start_at, :duration, :place, :latitude, :longitude, :address)
+    params.require(:event).permit(:name, :start_at, :duration, :place, :latitude, :longitude, :address, :country, :state, :locality, :description)
   end
 end
