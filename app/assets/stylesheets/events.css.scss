@@ -1,0 +1,190 @@
+$padding-card: 20px;
+$border-radius-card: 4px;
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin border-radius-compound($radius1, $radius2, $radius3, $radius4 ) {
+  -webkit-border-radius: $radius1 $radius2 $radius3 $radius4;
+     -moz-border-radius: $radius1 $radius2 $radius3 $radius4;
+      -ms-border-radius: $radius1 $radius2 $radius3 $radius4;
+          border-radius: $radius1 $radius2 $radius3 $radius4;
+}
+
+.row.events{
+  margin-bottom: 40px;
+  .options{
+    background: #F1F5F8;
+    @include border-radius-compound(0px, 0px, $border-radius-card, $border-radius-card);
+    color: #697188;
+    text-align: center;
+    border: 1px solid #EAEAEA;
+    .row{
+      margin-left: 0px;
+      margin-right: 0px;
+      .col{
+        margin: 5px 0px;
+        padding: 12px 0px;
+      }
+
+      .middle{
+        border-left: 1px solid rgba(105, 113, 136, 0.3);
+        border-right: 1px solid rgba(105, 113, 136, 0.3);
+      }
+
+      .icon-option{
+        font-size: 18px;
+        font-weight: 300;
+      }
+
+      .participant:before{
+        content: url('icons/participant.png');
+      }
+
+      .company:before{
+        content: url('icons/company.png');
+      }
+
+      .icon-text{
+        display: block;
+        font-size: 14px;
+      }
+    }
+
+  }
+}
+
+.sort-container{
+  text-align: right;
+  margin-bottom: 10px;
+  .segmented-control {
+    text-transform: uppercase;
+    color: #0086bf;
+    font-size: 0;
+  }
+
+  .segmented-control__segment{
+    color: #666;
+    background-color: #ededed;
+  }
+
+  .segmented-control__segment:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    }
+
+  .segmented-control__segment {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 12px;
+    padding: 0 20px;
+    background-color: #fff;
+    line-height: 30px;
+    height: 30px;
+    border-left: solid 1px #dedede;
+    border-top: solid 1px #dedede;
+    border-bottom: solid 1px #dedede;
+  }
+
+  .segmented-control__segment:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-right: solid 1px #dedede;
+    }
+}
+
+.event-show-link:hover{
+  text-decoration: none;
+}
+
+.item-event{
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  border-left: 1px solid rgba(0, 0, 0, 0.06);
+  @include border-radius-compound($border-radius-card, $border-radius-card, 0px, 0px);
+  padding: $padding-card;
+  color: rgba(121, 121, 121, 0.8);
+  padding-top: 0px;
+  padding-bottom: 10px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  .event-show-hover{
+    background: rgba(241, 245, 248, 1);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 20px;
+    text-decoration: none;
+    border-top: 1px solid #ECECEC;
+    z-index: 3;
+    overflow: hidden;
+    height: 100%;
+    color: rgba(121, 121, 121, 0.8);
+    .event-description{
+      font-weight: 300;
+      font-size: 13px;
+    }
+    strong{
+      display: block;
+      margin: 0 0 14px 0;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.2;
+      color: #444444;
+    }
+  }
+
+  &.active{
+    border-top: 10px solid rgb(24, 211, 119);
+  }
+  .event-show-link{
+    color: rgba(121, 121, 121, 0.8);
+  }
+  .event-header{
+    text-align: center;
+    .name{
+      display: inline-block;
+      font-size: 1.38em;
+      margin-bottom: 20px;
+      color: #393C44;
+      letter-spacing: 0.5px;
+      font-family: san-serif;
+    }
+
+    .name, .icon-header{
+      text-align: center;
+    }
+
+    .icon-header{
+      font-weight: 300;
+      font-size: 13px;
+    }
+
+    .location:before{
+      content: url('location.png');
+    }
+    .calendar:before{
+      content: url('calendar.png');
+    }
+  }
+
+}
+
+.paginate{
+  height: 60px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.event-show{
+  .info{
+    margin-bottom: 50px;
+  }
+}

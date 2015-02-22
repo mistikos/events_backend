@@ -12,12 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui/datepicker
 //= require bootstrap
 //= require turbolinks
+//= require geocomplete
+//= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
+//= require pickers
+//= require moment/es
+//= require bootstrap-modal
+//= require bootstrap-modalmanager
 //= require_tree .
-
-$(document).ready(function() {
-  alert
-  $("input.datepicker").datepicker();
-})

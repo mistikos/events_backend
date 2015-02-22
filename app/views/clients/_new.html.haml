@@ -1,0 +1,12 @@
+= simple_form_for @client, remote: true do |f|
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3#myModalLabel Crear nuevo cliente
+  .modal-body
+    = f.input :fullname
+    = f.input :email
+    = f.input :dni
+    = f.input :gender, collection: [['Masculino', 'm'], ['Femenino', 'f']]
+  .modal-footer
+    = f.submit 'Crear', class: 'btn btn-primary'
+    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close

@@ -42,6 +42,11 @@ gem 'devise'
 gem 'simple_form'
 gem 'haml'
 gem "haml-rails"
+gem 'geocomplete_rails'
+gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'will_paginate', '~> 3.0.6'
+gem 'bootstrap-modal-rails'
 
 group :development do
   # gem 'dotenv-rails'
@@ -59,19 +64,17 @@ group :development do
 
   # gem 'overcommit', require: false
   # gem 'scss-lint', require: false
+  gem 'pry-rails'
+  gem 'pry-rescue'
 end
 
 group :development, :test do
-  gem 'factory_girl_rails'
-  gem 'faker'
-  gem 'pry-rails'
-  gem 'pry-rescue'
-  gem 'rspec-rails'
+  gem 'ffaker'
 end
 
 group :test do
-  gem "minitest-rails"
-  gem 'minitest-reporters', '1.0.5'
-  # gem 'mini_backtrace',     '0.1.3'
-  # gem 'guard-minitest',     '2.3.1'
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem 'ffaker'
+  gem "shoulda-matchers"
 end

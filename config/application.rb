@@ -22,15 +22,14 @@ module EventsBackend
 
     config.generators do |g|
       g.template_engine :haml
-      g.stylesheets false
-      g.javascripts false
+      g.assets false
+      g.test_framework :rspec, fixture: true
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
       g.view_specs false
       g.helper_specs false
-      g.helper false
-      g.assets false
-      g.test_framework :minitest, spec: true, fixture: false
-      g.fixture_replacement :factory_girl, dir: "spec/factories"
+      g.stylesheets = false
+      g.javascripts = false
+      g.helper = false
     end
-
   end
 end

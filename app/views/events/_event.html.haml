@@ -1,7 +1,36 @@
-%li{id: dom_id(event)}
-  %span{class: "name"}= event.name
-  %span{class: "place"}
-    = event.place
-  %span{class: "timestamp"}
-    = l event.start_at
-  = link_to 'Ver evento', event
+.col-sm-4
+  .item-event{id: dom_id(event), class: event.status}
+    = link_to event, class: 'event-show-link' do
+      .event-header
+        %h3.name= event.name.titleize
+        %p.location.icon-header
+          = event.full_address
+        %p.calendar.icon-header
+          = l(event.start_at, format: :short)
+      .event-content
+        %p.creator
+          = event.creator.fullname
+
+    = link_to event, class: 'event-show-hover', style: 'opacity: 0' do
+      %strong= event.name.titleize
+      %span.event-description
+        = event.description
+
+  .options
+    .row
+      .col-sm-4.col
+        %span.participant.icon-option
+          12
+        %span.icon-text
+          Invitados
+
+      .col-sm-4.middle.col
+        %span.company.icon-option
+          2
+        %span.icon-text
+          Organizadores
+      .col-sm-4.col
+        %span.participant.icon-option
+          12
+        %span.icon-text
+          Invitados

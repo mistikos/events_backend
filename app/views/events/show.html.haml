@@ -1,4 +1,25 @@
-%h2 Evento show
-= @event.name
-= @event.place
-= @event.start_at
+.event-show
+  %h2= "Evento #{@event.name}"
+  .info
+    %p
+      %strong Lugar:
+      = @event.place
+    %p
+      %strong Inicio:
+      = l @event.start_at, format: :short
+
+  .row
+    .col-sm-6
+      %fieldset
+        %legend Agregar Companies
+        = render 'participants/form'
+        %ul
+          = render @event.participants
+
+    .col-sm-6
+      %fieldset
+        %legend Agregar invitados
+        = link_to '+ Crear invitado', new_client_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
+        = render 'checklists/form'
+        %ul
+          = render @event.checklists

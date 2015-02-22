@@ -1,0 +1,3 @@
+= simple_form_for [@event, Checklist.new] do |f|
+  = f.association :client, label_method: :fullname
+  = f.submit 'Agregar', class: 'btn btn-primary'
