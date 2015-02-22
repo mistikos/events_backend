@@ -5,6 +5,7 @@
       %ul.nav.navbar-nav.pull-right
         %li= link_to "Eventos", root_path
         %li= link_to "Nuevo evento", new_event_path
+        %li= link_to "Log out", destroy_admin_session_path, method: :delete
         %li.dropdown
           %a{ href: "#", class: "dropdown-toggle", data: { "toggle" => "dropdown" } }
             Account

@@ -1,8 +1,5 @@
-- if admin_signed_in?
-  = render 'shared/feed_events'
-- else
-  %h1 Descripcion del producto
-  = link_to "Login", new_admin_session_path
-  or
-  %p Contactenos:
-  %p contacto@example.com - 29093093
+%h1 Descripcion del producto
+= link_to "Login", new_admin_session_path
+or
+%p Contactenos:
+%p contacto@example.com - 29093093
