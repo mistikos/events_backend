@@ -7,11 +7,9 @@ class CreateEvents < ActiveRecord::Migration
       t.integer :duration
       t.string :place
       t.string :address, default: ''
+      t.string :location
       t.float :latitude
       t.float :longitude
-      t.string :locality
-      t.string :country
-      t.string :state
       t.text :description
       t.belongs_to :company, index: true
       t.belongs_to :creator, index: true

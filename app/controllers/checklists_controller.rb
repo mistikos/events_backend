@@ -8,7 +8,7 @@ class ChecklistsController < ApplicationController
     @event = Event.find(params[:event_id])
     @checklist = @event.checklists.build(params_checklist)
     if @checklist.save
-      flash[:success] = "Event created!"
+      flash[:success] = "Invitado agregado!"
       redirect_to @event
     else
       flash[:alert] = "Ocurrio un error!"

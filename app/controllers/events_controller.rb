@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = current_admin.events.paginate(:page => params[:page], :per_page => 12).order(:start_at)
+    @events = current_admin.events.includes(:companies, :clients, :creator).paginate(:page => params[:page], :per_page => 12).order(:start_at)
   end
 
   def show
@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     @event.company_id = current_admin.company_id
     if @event.save
       @event.participants.create(company_id: current_admin.company_id)
-      flash[:success] = "Event created!"
+      flash[:success] = "Evento creado!"
       redirect_to @event
     else
       render 'new'
@@ -27,6 +27,6 @@ class EventsController < ApplicationController
   private
 
   def params_event
-    params.require(:event).permit(:name, :start_at, :duration, :place, :latitude, :longitude, :address, :country, :state, :locality, :description)
+    params.require(:event).permit(:name, :start_at, :duration, :place, :latitude, :longitude, :address, :location, :description)
   end
 end

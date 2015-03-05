@@ -10,7 +10,7 @@ class ParticipantsController < ApplicationController
     @event = Event.find(params[:event_id])
     @participant = @event.participants.build(params_participant)
     if @participant.save
-      flash[:success] = "Event created!"
+      flash[:success] = "Participante agregado!"
       redirect_to @event
     else
       flash[:alert] = "Ocurrio un error!"

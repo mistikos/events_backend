@@ -19,6 +19,8 @@
     .col-sm-6
       %fieldset
         %legend Agregar invitados
+        = link_to ' Buscar', new_client_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
+        O
         = link_to '+ Crear invitado', new_client_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
         = render 'checklists/form'
         %ul

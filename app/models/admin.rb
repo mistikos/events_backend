@@ -12,5 +12,6 @@ class Admin < ActiveRecord::Base
 
   has_many :events, foreign_key: :creator_id
   has_many :clients, foreign_key: :creator_id
+  belongs_to :company
 
 end

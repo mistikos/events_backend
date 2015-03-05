@@ -1,17 +1,15 @@
 = simple_form_for @event,  html: { class: 'form-horizontal' } do |f|
   = render 'shared/error_messages', object: f.object
   = f.input :name
-  = f.input :start_at, :as => :datetime_picker
+  = f.input :start_at, as: :datetime_picker
   = f.input :duration
   .location_event
-    = f.input :address, input_html: {data: {geo: 'formatted_address'}, class: 'location'}
-    / = f.input :country, input_html: {data: {geo: 'country'}, class: 'location'}
-    = f.input :state, input_html: {data: {geo: 'administrative_area_level_1'}, class: 'location'}, as: :hidden
-    = f.input :locality, input_html: {data: {geo: 'locality'}, class: 'location'}, as: :hidden
+    = f.input :location, input_html: {data: {geo: 'formatted_address'}, class: 'location'}
+    #my_map
     = f.input :longitude, input_html: {data: {geo: 'lng'}, class: 'location'}, as: :hidden
     = f.input :latitude, input_html: {data: {geo: 'lat'}, class: 'location'}, as: :hidden
+  = f.input :address
   = f.input :place
   = f.input :description
-  #my_map
   = f.submit 'Crear', class: 'btn btn-primary'
   %button.btn Cancelar
