@@ -6,8 +6,10 @@
   .location_event
     = f.input :location, input_html: {data: {geo: 'formatted_address'}, class: 'location'}
     #my_map
-    = f.input :longitude, input_html: {data: {geo: 'lng'}, class: 'location'}, as: :hidden
-    = f.input :latitude, input_html: {data: {geo: 'lat'}, class: 'location'}, as: :hidden
+    / = f.input :longitude, input_html: {data: {geo: 'lng'}, class: 'location'}, as: :hidden
+    / = f.input :latitude, input_html: {data: {geo: 'lat'}, class: 'location'}, as: :hidden
+    = f.input :longitude, input_html: {data: {geo: 'lng'}, class: 'location'}
+    = f.input :latitude, input_html: {data: {geo: 'lat'}, class: 'location'}
   = f.input :address
   = f.input :place
   = f.input :description
