@@ -1,15 +1,15 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: events_backend_development
+  database: events_development
   pool: 5
-  username: Angelito
+  username: mistiko 
   password:
 
 test:
   adapter: postgresql
   encoding: unicode
-  database: events_backend_test
+  database: events_test
   pool: 5
-  username: Angelito
+  username: mistiko
   password:
