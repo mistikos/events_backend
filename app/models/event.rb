@@ -10,6 +10,6 @@ class Event < ActiveRecord::Base
   validates :start_at, presence: true
 
   def full_address
-    "#{locality} - #{address}"
+    "#{address} - #{location}"
   end
 end

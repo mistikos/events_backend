@@ -4,10 +4,14 @@ $ ->
     map: '#my_map'
     details: '.location_event'
     detailsAttribute: "data-geo"
+    mapOptions:
+      zoom: 200
     types: [
       'geocode'
       'establishment'
     ]
+
+
   # $('#find').click ->
   #   $('#geocomplete').trigger 'geocode'
 

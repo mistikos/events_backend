@@ -24,3 +24,7 @@ end
   longitude = rand(-180.000000000...180.000000000)
   Event.create(name: Faker::Lorem.word, start_at: Time.now + rand((1..30)).days, duration: rand(1..10), place: Faker::Company.name, location: Faker::Address.street_address, latitude: latitude, longitude: longitude,  address: Faker::Address.city, company_id: Company.pluck(:id).sample, creator_id: Admin.pluck(:id).sample, description: Faker::Lorem.sentence(3))
 end
+
+10.times do
+  Category.create(name: Faker::Commerce.product_name)
+end
