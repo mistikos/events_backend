@@ -2,19 +2,34 @@
   %h2= "Evento #{@event.name}"
   .info
     %p
+      %strong Descripcion:
+      = @event.description
+    %p
+      %strong Tipo de evento:
+      = @event.event_type.name
+    %p
       %strong Lugar:
-      = @event.place
+      = @event.full_address
     %p
       %strong Inicio:
       = l @event.start_at, format: :short
 
+    %p
+      %strong Duracion:
+      = @event.duration
+
+    %p
+      %strong Creado por:
+      = @event.creator.fullname
+
+
   .row
-    .col-sm-6
-      %fieldset
-        %legend Agregar Companies
-        = render 'participants/form'
-        %ul
-          = render @event.participants
+    / .col-sm-6
+    /   %fieldset
+    /     %legend Agregar Companies
+    /     = render 'participants/form'
+    /     %ul
+    /       = render @event.participants
 
     .col-sm-6
       %fieldset

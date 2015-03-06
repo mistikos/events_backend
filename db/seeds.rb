@@ -22,8 +22,8 @@ Admin.create email: 'gramirez@gmail.com', fullname: 'chalo gonzale', company_id:
 
 20.times do
   admin = Admin.all.sample
-  client = Client.create(fullname: Faker::Name.name, dni: Faker::Address.building_number, email: Faker::Internet.email, creator_id: admin.id, gender: ['f', 'm'].sample)
-  client.company_ids = admin.id
+  client = Client.create(company_id: admin.company.id, fullname: Faker::Name.name, dni: Faker::Address.building_number, email: Faker::Internet.email, creator_id: admin.id, gender: ['f', 'm'].sample)
+  client.company_ids = admin.company.id
 end
 
 
