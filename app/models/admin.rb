@@ -9,7 +9,7 @@ class Admin < ActiveRecord::Base
   validates :fullname, presence: true
   validates :email, presence: true, length: { maximum: 255}, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6}, presence: true
-  validates :company_id, presence: true
+  validates :dni, :company_id, presence: true
 
   has_many :events, foreign_key: :creator_id
   has_many :clients, foreign_key: :creator_id

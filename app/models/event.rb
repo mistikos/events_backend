@@ -5,6 +5,8 @@ class Event < ActiveRecord::Base
   has_many :companies, through: :participants
   has_many :checklists
   has_many :clients, through: :checklists
+  has_many :event_receptionists
+  has_many :receptionists, class_name: 'User', through: :event_receptionists
 
   validates :name, :slug, :start_at, presence: true
   validates :slug, uniqueness: true
