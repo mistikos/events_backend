@@ -7,7 +7,13 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_admin!
 
   private
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :company
-  end
+
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.for(:sign_up) << :company
+    end
+
+    def current_company
+      @company ||= current_admin.company
+    end
+
 end
