@@ -76,11 +76,13 @@ ActiveRecord::Schema.define(version: 20150306011701) do
     t.string   "dni",        null: false
     t.string   "email",      null: false
     t.string   "gender"
-    t.integer  "creator_id"
+    t.integer  "creator_id", null: false
+    t.integer  "company_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "clients", ["company_id"], name: "index_clients_on_company_id", using: :btree
   add_index "clients", ["creator_id"], name: "index_clients_on_creator_id", using: :btree
 
   create_table "companies", force: true do |t|
