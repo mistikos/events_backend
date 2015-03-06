@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306003737) do
+ActiveRecord::Schema.define(version: 20150306011701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,26 +50,37 @@ ActiveRecord::Schema.define(version: 20150306003737) do
     t.integer  "event_id",                        null: false
     t.integer  "client_id",                       null: false
     t.integer  "recepcionist_id"
-    t.datetime "check_in_on"
+    t.datetime "check_in_at"
+    t.integer  "company_id",                      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "checklists", ["client_id"], name: "index_checklists_on_client_id", using: :btree
+  add_index "checklists", ["company_id"], name: "index_checklists_on_company_id", using: :btree
   add_index "checklists", ["event_id"], name: "index_checklists_on_event_id", using: :btree
+  add_index "checklists", ["recepcionist_id"], name: "index_checklists_on_recepcionist_id", using: :btree
+
+  create_table "client_has_companies", force: true do |t|
+    t.integer  "client_id",  null: false
+    t.integer  "company_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "client_has_companies", ["client_id"], name: "index_client_has_companies_on_client_id", using: :btree
+  add_index "client_has_companies", ["company_id"], name: "index_client_has_companies_on_company_id", using: :btree
 
   create_table "clients", force: true do |t|
-    t.string   "fullname"
-    t.string   "dni"
-    t.string   "email"
-    t.integer  "company_id"
+    t.string   "fullname",   null: false
+    t.string   "dni",        null: false
+    t.string   "email",      null: false
     t.string   "gender"
     t.integer  "creator_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "clients", ["company_id"], name: "index_clients_on_company_id", using: :btree
   add_index "clients", ["creator_id"], name: "index_clients_on_creator_id", using: :btree
 
   create_table "companies", force: true do |t|
@@ -85,6 +96,26 @@ ActiveRecord::Schema.define(version: 20150306003737) do
   end
 
   add_index "companies", ["category_id"], name: "index_companies_on_category_id", using: :btree
+
+  create_table "company_has_receptionists", force: true do |t|
+    t.integer  "company_id",      null: false
+    t.integer  "receptionist_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "company_has_receptionists", ["company_id"], name: "index_company_has_receptionists_on_company_id", using: :btree
+  add_index "company_has_receptionists", ["receptionist_id"], name: "index_company_has_receptionists_on_receptionist_id", using: :btree
+
+  create_table "event_receptionists", force: true do |t|
+    t.integer  "event_id",        null: false
+    t.integer  "receptionist_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_receptionists", ["event_id"], name: "index_event_receptionists_on_event_id", using: :btree
+  add_index "event_receptionists", ["receptionist_id"], name: "index_event_receptionists_on_receptionist_id", using: :btree
 
   create_table "event_types", force: true do |t|
     t.string   "name",       null: false
@@ -116,8 +147,8 @@ ActiveRecord::Schema.define(version: 20150306003737) do
   add_index "events", ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
 
   create_table "participants", force: true do |t|
-    t.integer  "event_id"
-    t.integer  "company_id"
+    t.integer  "event_id",   null: false
+    t.integer  "company_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
