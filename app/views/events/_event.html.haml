@@ -1,5 +1,5 @@
 .col-sm-4
-  .item-event{id: dom_id(event), class: event.status}
+  .item-event{id: dom_id(event), class: 'active'}
     = link_to event, class: 'event-show-link' do
       .event-header
         %h3.name= event.name.titleize
