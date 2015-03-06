@@ -4,10 +4,11 @@
     = link_to event, class: 'event-show-link' do
       .event-header
         %h3.name= event.name.titleize
-        %p.event-type= event.event_type_name.titleize
-        %p.location.icon-header
+        %p.icon-header
+          %i.fa.fa-map-marker.fa-lg
           = event.full_address
-        %p.calendar.icon-header
+        %p.icon-header
+          %i.fa.fa-calendar-o.fa-lg
           = l(event.start_at, format: :short)
 
     .event-content
