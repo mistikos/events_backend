@@ -11,10 +11,13 @@
 
 # end data category
 
+# 10.times do
+#   Category.create(name: Faker::Lorem.word)
+# end
 
 
 # 20.times do
-#   Company.create(name: Faker::Company.name, email: Faker::Internet.email, address: Faker::Address.street_address, phone: Faker::PhoneNumber.phone_number, logo: "http://pigment.github.io/fake-logos/logos/small/color/#{rand(1...13)}.png")
+#   Company.create(name: Faker::Company.name, category_id: Category.pluck(:id).sample, email: Faker::Internet.email, address: Faker::Address.street_address, phone: Faker::PhoneNumber.phone_number, logo: "http://pigment.github.io/fake-logos/logos/small/color/#{rand(1...13)}.png")
 # end
 
 # Admin.create email: 'videmor@gmail.com', fullname: 'angel rojitas', company_id: Company.pluck(:id).sample, password: 'please'
@@ -32,7 +35,3 @@
 #   Event.create(name: Faker::Lorem.word, start_at: Time.now + rand((1..30)).days, duration: rand(1..10), place: Faker::Company.name, location: Faker::Address.street_address, latitude: latitude, longitude: longitude,  address: Faker::Address.city, company_id: Company.pluck(:id).sample, creator_id: Admin.pluck(:id).sample, description: Faker::Lorem.sentence(3))
 # end
 
-
-10.times do
-  Category.create(name: Faker::Lorem.word)
-end
