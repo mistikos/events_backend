@@ -14,5 +14,6 @@
  *= require bootstrap-modal-bs3patch
  *= require bootstrap-modal
  *= require_self
+ *= require tipsy
  *= require bootstrap-datetimepicker.min
  */

@@ -117,6 +117,28 @@ $border-radius-card: 4px;
   display: inline-block;
   width: 100%;
 
+  .event-content{
+    margin-top: 25px;
+    .companies{
+      padding-left: 0px;
+      li{
+        display: inline;
+        margin-right: 10px;
+        span{
+          display: inline-block;
+        }
+        img{
+          width: 36px;
+          vertical-align: middle;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+        }
+      }
+    }
+
+  }
+
   .event-show-hover{
     background: rgba(241, 245, 248, 1);
     position: absolute;
@@ -163,6 +185,13 @@ $border-radius-card: 4px;
       color: #393C44;
       letter-spacing: 0.5px;
       font-family: san-serif;
+      margin-bottom: 0px;
+    }
+
+    .event-type{
+      font-size: 11px;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
     }
 
     .name, .icon-header{

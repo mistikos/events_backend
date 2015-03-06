@@ -47,6 +47,7 @@ gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'will_paginate', '~> 3.0.6'
 gem 'bootstrap-modal-rails'
+gem 'tipsy-rails'
 
 group :development do
   # gem 'dotenv-rails'

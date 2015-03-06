@@ -14,6 +14,8 @@ class Event < ActiveRecord::Base
 
   before_validation :generate_slug
 
+  delegate :name, to: :event_type, prefix: true
+
   def generate_slug
     self.slug = "#{name.parameterize}-#{Time.current.to_i}"
   end

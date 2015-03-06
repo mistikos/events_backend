@@ -22,4 +22,5 @@
 //= require moment/es
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
+//= require tipsy
 //= require_tree .
