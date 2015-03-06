@@ -2,15 +2,18 @@ Rails.application.routes.draw do
 
   scope constraints: { subdomain: 'manager'} do
 
-    devise_for :users
+    # devise_for :users
+
     devise_for :admins, controllers: { registrations: "admins/registrations" }
 
-    authenticated :admin do
-      root :to => "events#index", as: :authenticated_root
-    end
+    devise_scope :admin do
+      authenticated :admin do
+        root 'events#index', as: :authenticated_root
+      end
 
-    unauthenticated :admin do
-      root :to => "static_pages#home"
+      unauthenticated do
+        root 'devise/sessions#new', as: :unauthenticated_root
+      end
     end
 
     resources :clients, only: [:new, :create]
