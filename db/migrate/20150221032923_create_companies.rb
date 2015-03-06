@@ -6,7 +6,7 @@ class CreateCompanies < ActiveRecord::Migration
       t.string :address
       t.string :phone
       t.string :logo
-      # t.belongs_to :categor
+      t.belongs_to :category, null: false
 
       t.timestamps
     end

@@ -73,11 +73,12 @@ ActiveRecord::Schema.define(version: 20150306000222) do
   add_index "clients", ["creator_id"], name: "index_clients_on_creator_id", using: :btree
 
   create_table "companies", force: true do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string   "name",        null: false
+    t.string   "email",       null: false
     t.string   "address"
     t.string   "phone"
     t.string   "logo"
+    t.integer  "category_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
