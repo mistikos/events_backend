@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :company_has_receptionists
+  has_many :company_has_receptionists, foreign_key: :receptionist_id
   has_many :companies, through: :company_has_receptionists
   has_many :event_receptionists
   has_many :events, through: :event_receptionists
@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :fullname, presence: true
   validates :email, presence: true, length: { maximum: 255}, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6}, presence: true
-  validates :dni, :company_id, presence: true
+  validates :dni, presence: true
 
 
 end
