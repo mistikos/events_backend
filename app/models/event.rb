@@ -9,6 +9,12 @@ class Event < ActiveRecord::Base
   validates :name, :slug, :start_at, presence: true
   validates :slug, uniqueness: true
 
+  before_validation :generate_slug
+
+  def generate_slug
+    self.slug = "#{name}-#{Time.current.to_i}"
+  end
+
   def full_address
     "#{address} - #{location}"
   end

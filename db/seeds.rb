@@ -7,10 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# data category
-
-# end data category
-
 # 10.times do
 #   Category.create(name: Faker::Lorem.word)
 # end
@@ -38,5 +34,8 @@
 # 20.times do
 #   latitude = rand(-90.000000000...90.000000000)
 #   longitude = rand(-180.000000000...180.000000000)
-#   Event.create(name: Faker::Lorem.word, event_type_id: Event.pluck(:id).sample, start_at: Time.now + rand((1..30)).days, duration: rand(1..10), place: Faker::Company.name, location: Faker::Address.street_address, latitude: latitude, longitude: longitude,  address: Faker::Address.city, company_id: Company.pluck(:id).sample, creator_id: Admin.pluck(:id).sample, description: Faker::Lorem.sentence(3))
+#   Event.create(name: Faker::Lorem.word, event_type_id: EventType.pluck(:id).sample, start_at: Time.now + rand((1..30)).days, duration: rand(1..10), place: Faker::Company.name, location: Faker::Address.street_address, latitude: latitude, longitude: longitude,  address: Faker::Address.city, company_id: Company.pluck(:id).sample, creator_id: Admin.pluck(:id).sample, description: Faker::Lorem.sentence(3))
 # end
+
+# User.create email: 'naruto@gmail.com', fullname: 'izumaky naruto', password: 'please'
+# User.create email: 'sasuke@gmail.com', fullname: 'sasuke uchiha', password: 'please'

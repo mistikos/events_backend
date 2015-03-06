@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306000222) do
+ActiveRecord::Schema.define(version: 20150306003737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150306000222) do
     t.datetime "updated_at"
   end
 
-  add_index "admins", ["company_id"], name: "index_admins_on_company_id", unique: true, using: :btree
+  add_index "admins", ["company_id"], name: "index_admins_on_company_id", using: :btree
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
@@ -73,35 +73,47 @@ ActiveRecord::Schema.define(version: 20150306000222) do
   add_index "clients", ["creator_id"], name: "index_clients_on_creator_id", using: :btree
 
   create_table "companies", force: true do |t|
-    t.string   "name",        null: false
-    t.string   "email",       null: false
+    t.string   "name",                        null: false
+    t.string   "email",                       null: false
     t.string   "address"
     t.string   "phone"
     t.string   "logo"
-    t.integer  "category_id", null: false
+    t.integer  "category_id",                 null: false
+    t.boolean  "publish",     default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "companies", ["category_id"], name: "index_companies_on_category_id", using: :btree
+
+  create_table "event_types", force: true do |t|
+    t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "events", force: true do |t|
-    t.string   "name"
-    t.datetime "start_at"
-    t.string   "status",      default: "active"
-    t.integer  "duration"
-    t.string   "place"
-    t.string   "address",     default: ""
+    t.string   "name",                          null: false
+    t.string   "slug",                          null: false
+    t.datetime "start_at",                      null: false
+    t.integer  "duration",      default: 12
+    t.string   "place",         default: ""
+    t.string   "address",       default: ""
     t.string   "location"
     t.float    "latitude"
     t.float    "longitude"
     t.text     "description"
-    t.integer  "company_id"
-    t.integer  "creator_id"
+    t.boolean  "publish",       default: false
+    t.integer  "company_id",                    null: false
+    t.integer  "creator_id",                    null: false
+    t.integer  "event_type_id",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "events", ["company_id"], name: "index_events_on_company_id", using: :btree
   add_index "events", ["creator_id"], name: "index_events_on_creator_id", using: :btree
+  add_index "events", ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
 
   create_table "participants", force: true do |t|
     t.integer  "event_id"
@@ -112,5 +124,26 @@ ActiveRecord::Schema.define(version: 20150306000222) do
 
   add_index "participants", ["company_id"], name: "index_participants_on_company_id", using: :btree
   add_index "participants", ["event_id"], name: "index_participants_on_event_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "fullname",               default: "", null: false
+    t.string   "dni",                    default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.string   "api_authtoken"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
