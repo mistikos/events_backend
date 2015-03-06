@@ -2,16 +2,17 @@
   / = render 'shared/error_messages', object: f.object
   = f.input :name, autofocus: true
   = f.association :event_type, prompt: '- Tipo de evento -'
-  = f.input :place, input_html: {placeholder: 'p.e Los sopranos'}
   = f.input :start_at, as: :datetime_picker
   = f.input :duration
   .location_event
-    = f.input :location, input_html: {data: {geo: 'formatted_address'}, class: 'location'}
+    .wrapper-map
+      = f.input :place, input_html: {placeholder: 'p.e Los sopranos'}
+      = f.input :location, input_html: {data: {geo: 'formatted_address'}, class: 'location'}
+      = f.input :longitude, input_html: {data: {geo: 'lng'}}, as: :hidden
+      = f.input :latitude, input_html: {data: {geo: 'lat'}}, as: :hidden
+      = f.input :address, input_html: {placeholder: 'p.e Avenida Nro 345'}
     #my_map
-    = f.input :longitude, input_html: {data: {geo: 'lng'}, class: 'location'}, as: :hidden
-    = f.input :latitude, input_html: {data: {geo: 'lat'}, class: 'location'}, as: :hidden
 
-  = f.input :address, input_html: {placeholder: 'p.e Avenida Nro 345'}
-  = f.input :description
+  = f.input :description, input_html: { :rows => 6}
   = f.submit 'Crear', class: 'btn btn-primary'
   %button.btn Cancelar

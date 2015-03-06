@@ -1,15 +1,15 @@
 $ ->
+  #menu dropdown
   $('.dropdown-toggle').dropdown()
 
+  #tooltip
   $('.tipsy-add').tipsy()
 
-  $('input.location').geocomplete
+  #add map
+  options =
     map: '#my_map'
+    location: 'LIM'
     details: '.location_event'
     detailsAttribute: "data-geo"
-    mapOptions:
-      zoom: 200
-    types: [
-      'geocode'
-      'establishment'
-    ]
+
+  $('input.location').geocomplete options

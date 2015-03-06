@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
     resources :clients, only: [:new, :create]
     resources :events do
+      get :past, on: :collection
       resources :participants, only: [:create, :new]
       resources :checklists, only: [:create, :new, :destroy]
     end

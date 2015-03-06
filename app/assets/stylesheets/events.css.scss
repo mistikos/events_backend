@@ -176,7 +176,7 @@ $border-radius-card: 4px;
   }
 
   &.inactive{
-    border-top: 10px solid #FF8F81;
+    border-top: 10px solid #F9AE5A;
   }
   .event-show-link{
     color: rgba(121, 121, 121, 0.8);
@@ -230,4 +230,17 @@ $border-radius-card: 4px;
   border: 1px solid #fff;
   border-radius: 4px;
   padding: 10px 10px;
+}
+
+.wrapper-map{
+  display: inline-block;
+  width: 53%;
+}
+
+#my_map{
+  width: 270px;
+  height: 270px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10%;
 }

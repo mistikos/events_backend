@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = current_company.events.includes(:clients, :creator, :event_type, :companies).paginate(:page => params[:page], :per_page => 12).order(:start_at)
+    @events = current_company.events.coming.includes(:clients, :creator, :event_type, :companies).paginate(:page => params[:page], :per_page => 12).order(:start_at)
   end
 
   def show
@@ -11,11 +11,16 @@ class EventsController < ApplicationController
     @event = Event.new(start_at: Time.zone.now)
   end
 
+  def past
+    @events = current_company.events.past.includes(:clients, :creator, :event_type, :companies).paginate(:page => params[:page], :per_page => 12).order(:start_at)
+    render 'index'
+  end
+
   def create
     @event = current_admin.events.new(params_event)
     @event.company_id = current_admin.company_id
     if @event.save
-      @event.participants.create(company_id: current_admin.company_id)
+      @event.company_ids = current_admin.company_id
       flash[:success] = "Evento creado!"
       redirect_to @event
     else
