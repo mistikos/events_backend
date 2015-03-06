@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_admin!
 
+  helper_method :current_company
+
   private
 
     def configure_permitted_parameters
