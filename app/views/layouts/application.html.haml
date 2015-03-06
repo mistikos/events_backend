@@ -10,7 +10,7 @@
       = render 'layouts/header'
       .container
         - flash.each do |message_type, message|
-          %div{class: "alert alert-#{message_type}"}= message
+          %div{class: "#{flash_class(message_type)}"}= message
         = yield
     - else
       = yield

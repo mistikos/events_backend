@@ -1,6 +1,6 @@
 = simple_form_for @event,  html: { class: 'form-horizontal' } do |f|
   / = render 'shared/error_messages', object: f.object
-  = f.input :name
+  = f.input :name, autofocus: true
   = f.association :event_type, prompt: '- Tipo de evento -'
   = f.input :place, input_html: {placeholder: 'p.e Los sopranos'}
   = f.input :start_at, as: :datetime_picker
