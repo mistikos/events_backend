@@ -32,13 +32,13 @@
 # end
 # EventType.create(name: 'Otros')
 
-40.times do
-  latitude = rand(-90.000000000...90.000000000)
-  longitude = rand(-180.000000000...180.000000000)
-  admin = Admin.all.sample
-  event = Event.create(name: Faker::Lorem.word, event_type_id: EventType.pluck(:id).sample, start_at: Time.now + rand((1..30)).days, duration: rand(1..10), place: Faker::Company.name, location: Faker::Address.street_address, latitude: latitude, longitude: longitude,  address: Faker::Address.city, company_id: admin.company_id, creator_id: admin.id, description: Faker::Lorem.sentence(3))
-  event.company_ids = admin.company.id
-end
+# 40.times do
+#   latitude = rand(-90.000000000...90.000000000)
+#   longitude = rand(-180.000000000...180.000000000)
+#   admin = Admin.all.sample
+#   event = Event.create(name: Faker::Lorem.word, event_type_id: EventType.pluck(:id).sample, start_at: Time.now + rand((1..30)).days, duration: rand(1..10), place: Faker::Company.name, location: Faker::Address.street_address, latitude: latitude, longitude: longitude,  address: Faker::Address.city, company_id: admin.company_id, creator_id: admin.id, description: Faker::Lorem.sentence(3))
+#   event.company_ids = admin.company.id
+# end
 
 # user = User.create email: 'naruto@gmail.com', fullname: 'izumaky naruto', password: 'please', dni: rand.to_s[2..9]
 # user.company_ids = Company.pluck(:id).sample(2)

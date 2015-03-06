@@ -4,6 +4,7 @@
     = link_to event, class: 'event-show-link' do
       .event-header
         %h3.name= event.name.titleize
+        %p.event-type= event.event_type_name.titleize
         %p.icon-header
           %i.fa.fa-map-marker.fa-lg
           = event.full_address
@@ -15,12 +16,12 @@
       %ul.companies
         - images_urls = ['https://d13yacurqjgara.cloudfront.net/users/6237/avatars/normal/photo1.jpg?1404262407', 'https://d13yacurqjgara.cloudfront.net/users/13157/avatars/normal/profile.jpeg?1402476363', 'https://d13yacurqjgara.cloudfront.net/users/469158/avatars/normal/Untitled-4.jpg?1403172039', 'https://d13yacurqjgara.cloudfront.net/users/354150/avatars/normal/cb28ad0d88d19d2061b4c29f6320e7db.jpg?1424626270', 'https://d13yacurqjgara.cloudfront.net/users/453701/avatars/normal/23675feba7e038376a25fc15b940cf18.jpg?1414347217', 'https://d13yacurqjgara.cloudfront.net/users/262590/avatars/normal/fe089668592dd18c438369e357e5e70d.jpg?1421845383']
 
+        - if event.companies.size > 6
+          %li.aditional-company= "+#{event.companies.size - 6}"
+
         - event.companies.limit(6).each do |company|
           %li
             %span{title: "#{company.name}", class: 'tipsy-add'}= image_tag(images_urls.sample)
-          - if event.companies.size > 6
-            - more_qty = event.companies.size - 6
-            %li= "+#{more_qty}"
 
   .options
     .row

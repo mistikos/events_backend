@@ -121,9 +121,14 @@ $border-radius-card: 4px;
     margin-top: 25px;
     .companies{
       padding-left: 0px;
+      text-align: right;
       li{
         display: inline;
-        margin-right: 10px;
+        margin-right: 8px;
+        &.aditional-company{
+          color: rgb(133, 186, 231)
+        }
+
         span{
           display: inline-block;
         }
