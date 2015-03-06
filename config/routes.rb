@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   devise_for :admins, controllers: { registrations: "admins/registrations" }
 
   authenticated :admin do
