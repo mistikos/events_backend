@@ -1,0 +1,6 @@
+= simple_form_for @client do |f|
+  = f.input :fullname, autofocus: true
+  = f.input :email
+  = f.input :dni
+  = f.input :gender, collection: [['Masculino', 'm'], ['Femenino', 'f']]
+  = f.submit 'Crear', class: 'btn btn-primary'

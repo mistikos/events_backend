@@ -1,0 +1,14 @@
+.add-clients-to-checklist
+  = simple_form_for [@event, Checklist.new] do |f|
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      .icon-add-client
+        %i.fa.fa-users
+      %h3.title-add Agrega Invitados a tu Lista
+      = f.association :client, collection: current_admin.clients, label_method: :fullname, label: false, prompt: "- Elija un cliente - "
+    .modal-body
+      %p.not-found
+        No encontraste al cliente? crea por
+        = link_to 'aqui', new_client_path
+    .modal-footer
+      = f.submit 'AGREGAR', class: 'btn btn-primary'

@@ -1,5 +1,9 @@
 class ClientsController < ApplicationController
 
+  def index
+    @clients = current_company.clients.order(created_at: :desc)
+  end
+
   def new
     @client = Client.new
     respond_to do |format|
@@ -9,9 +13,14 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @client = current_admin.clients.new(params_client)
-    @client.company_id = current_admin.company_id
-    @client.save
+    @client = current_admin.clients.new(params_client.merge({company_id: current_admin.company_id}))
+    @client.company_ids = current_admin.company_id
+    if @client.save
+      flash[:success] = "Cliente creado!"
+      redirect_to clients_path
+    else
+      render 'new'
+    end
   end
 
 

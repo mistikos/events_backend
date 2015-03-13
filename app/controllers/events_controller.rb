@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.includes(:companies, :clients).find(params[:id])
+    @checklists = @event.checklists.includes(:client).order('clients.fullname')
   end
 
   def new

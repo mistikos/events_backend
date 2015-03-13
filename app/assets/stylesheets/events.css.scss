@@ -13,6 +13,101 @@ $border-radius-card: 4px;
           border-radius: $radius1 $radius2 $radius3 $radius4;
 }
 
+.event-show{
+  margin-top: 40px;
+  .event-info{
+    margin-bottom: 50px;
+  }
+
+  .info-desc{
+    color: #979EAC;
+    .fa{
+      margin-right: 10px;
+    }
+  }
+
+  .event-title{
+    font-size: 18px;
+  }
+
+  .event-desc{
+    width: 50%;
+    margin-bottom: 30px;
+  }
+
+  .companies-list{
+    list-style: none;
+    padding-left: 0px;
+  }
+
+}
+
+.btn-add-client{
+  float: right;
+  font-size: 16px;
+  color: #6cbd7d;
+}
+
+.checklist-list{
+  list-style: none;
+  padding-left: 0px;
+  color: rgba(58, 66, 83, 0.74);
+  li{
+    padding: 10px 0px;
+    border-bottom: 1px solid rgba(224, 224, 224, 0.28);
+    .email {
+      display: block;
+      color: rgba(58, 66, 83, 0.44);
+      font-size: 13px;
+    }
+    .option-delete{
+      float: right;
+    }
+  }
+}
+
+.add-clients-to-checklist{
+  .title-add{
+    color: #3A4253;
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .modal-header{
+    border-bottom: 1px solid #EDEDED;
+    text-align: center;
+    .icon-add-client i{
+      color: white;
+      background-color: rgb(255, 0, 94);
+      font-size: 28px;
+      padding: 14px;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+  }
+
+  .modal-footer{
+    background-color: #F9F9FB;
+    border-top: none;
+    text-align: center;
+  }
+  .modal-body{
+    background-color: #F9F9FB;
+    .not-found{
+      text-align: center;
+      color: rgb(150, 149, 149);
+    }
+  }
+}
+
+
+
+
+
 .row.events{
   margin-bottom: 40px;
   .options{
@@ -104,6 +199,13 @@ $border-radius-card: 4px;
 .event-show-link:hover{
   text-decoration: none;
 }
+.avatar-icon{
+  width: 36px;
+  vertical-align: middle;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
 
 .item-event{
   border-right: 1px solid rgba(0, 0, 0, 0.06);
@@ -115,6 +217,7 @@ $border-radius-card: 4px;
   padding-bottom: 10px;
   position: relative;
   display: inline-block;
+  background-color: white;
   width: 100%;
 
   .event-content{
@@ -131,13 +234,6 @@ $border-radius-card: 4px;
 
         span{
           display: inline-block;
-        }
-        img{
-          width: 36px;
-          vertical-align: middle;
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          border-radius: 50%;
         }
       }
     }
@@ -219,11 +315,7 @@ $border-radius-card: 4px;
 }
 
 
-.event-show{
-  .info{
-    margin-bottom: 50px;
-  }
-}
+
 
 
 .navbar-nav > li > a.btn-new-event{
