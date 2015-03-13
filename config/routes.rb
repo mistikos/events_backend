@@ -16,7 +16,8 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :clients, only: [:new, :create]
+    resources :clients, only: [:new, :create, :index]
+
     resources :events do
       get :past, on: :collection
       resources :participants, only: [:create, :new]

@@ -1,18 +1,37 @@
 class ChecklistsController < ApplicationController
 
   def new
-    @event = Event.new(start_at: Time.zone.now)
+    @event = Event.find(params[:event_id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
     @event = Event.find(params[:event_id])
     @checklist = @event.checklists.build(params_checklist)
+    @checklist.company_id = current_admin.company_id
     if @checklist.save
       flash[:success] = "Invitado agregado!"
       redirect_to @event
     else
-      flash[:alert] = "Ocurrio un error!"
+      flash[:error] = "Ocurrio un error!"
       redirect_to @event
+    end
+  end
+
+  def add
+    @event = Event.find(params[:event_id])
+    @checklist = @event.checklists.build(params_checklist)
+
+    @shops = Shop.find params[:wine].delete[:shops]
+    @wine = Wine.new(params[:wine])
+    @wine.shops = @shops
+
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

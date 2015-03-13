@@ -1,3 +1,4 @@
 %li
-  = checklist.client.fullname
-  = link_to 'Eliminar', [@event, checklist], method: :delete,  data: { confirm: 'Are you sure?' }
+  %span.option-name= checklist.client.fullname
+  %span.option-delete= link_to 'Eliminar', [@event, checklist], method: :delete,  data: { confirm: 'Are you sure?' }
+  %span.email= checklist.client.email

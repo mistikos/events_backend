@@ -10,6 +10,8 @@ html {
 
 body {
   padding-top: 60px;
+  background-color: #F9F9FB;
+  color: #979EAC;
 }
 
 section {
@@ -24,6 +26,18 @@ textarea {
   text-align: center;
   h1{
     margin-bottom: 10px;
+  }
+}
+
+.btn-primary{
+  background-color: rgb(108, 189, 125);
+  color: rgb(247, 246, 246);
+  border: 1px solid rgb(178, 234, 190);
+  padding: 15px 50px;
+  font-size: 15px;
+  &:hover{
+    background-color: #3FBE59;
+    border: 1px solid rgb(178, 234, 190);
   }
 }
 
@@ -45,4 +59,12 @@ textarea {
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
   background-color: #083245;
   color: white;
+}
+
+.table-condensed > tbody > tr > td, .table-condensed > thead > tr > th{
+  padding: 20px;
+}
+.table-condensed > tbody > tr > td{
+  border-top: 1px solid rgba(221, 221, 221, 0.35);
+  font-size: 13px;
 }

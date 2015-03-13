@@ -2,8 +2,10 @@ class Event < ActiveRecord::Base
 
   belongs_to :creator, class_name: 'Admin'
   belongs_to :event_type
+
   has_many :participants, dependent: :destroy
   has_many :companies, through: :participants
+
   has_many :checklists
   has_many :clients, through: :checklists
   has_many :event_receptionists

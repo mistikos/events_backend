@@ -1,42 +1,55 @@
 .event-show
-  %h2= "Evento #{@event.name}"
-  .info
-    %p
-      %strong Descripcion:
-      = @event.description
-    %p
-      %strong Tipo de evento:
-      = @event.event_type.name
-    %p
-      %strong Lugar:
-      = @event.full_address
-    %p
-      %strong Inicio:
-      = l @event.start_at, format: :short
+  .row.event-info
+    .col-sm-6
+      %p
+        %strong.event-title= @event.name.titleize
+        = @event.event_type.name
 
-    %p
-      %strong Duracion:
-      = @event.duration
+      .info-desc
+        %p.event-desc
+          = @event.description
 
-    %p
-      %strong Creado por:
-      = @event.creator.fullname
+      .info-desc
+        %p.event-desc
+          %ul.companies-list
+            - @event.companies.each do |company|
+              %li
+                %span{title: "#{company.name}", class: 'tipsy-add'}= image_tag(Company::LOGO_URLS.sample, class: 'avatar-icon')
+
+    .col-sm-6
+      .info-desc
+        %p
+          %strong.event-title &nbsp;
+
+        %p.info-desc
+          %i.fa.fa-map-marker.fa-lg
+          = @event.full_address
+
+        %p
+          %i.fa.fa-calendar-o.fa-lg
+          = l @event.start_at, format: :short
+
+        %p
+          %i.fa.fa-clock-o.fa-lg
+          = "#{@event.duration} hrs"
+
+        %p
+          %i.fa.fa-user.fa-lg
+          = @event.creator.fullname
 
 
   .row
-    / .col-sm-6
-    /   %fieldset
-    /     %legend Agregar Companies
-    /     = render 'participants/form'
-    /     %ul
-    /       = render @event.participants
-
     .col-sm-6
       %fieldset
-        %legend Agregar invitados
-        = link_to ' Buscar', new_client_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
-        O
-        = link_to '+ Crear invitado', new_client_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
-        = render 'checklists/form'
-        %ul
-          = render @event.checklists
+        %legend
+          Mis Invitados
+          = link_to '+ Agrega un invitado', new_event_checklist_path(@event),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn-add-client'}
+        / = link_to ' Buscar', new_client_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
+        / O
+        / = link_to '+ Crear invitado', new_client_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
+        / = render 'checklists/form'
+        %ul.checklist-list
+          - unless @checklists.blank?
+            = render @checklists
+          - else
+            Aún no tienes ningun invitado
