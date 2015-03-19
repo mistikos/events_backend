@@ -5,7 +5,7 @@
       .icon-add-client
         %i.fa.fa-users
       %h3.title-add Agrega Invitados a tu Lista
-      = f.association :client, collection: current_admin.clients, label_method: :fullname, label: false, prompt: "- Elija un cliente - "
+      = f.association :client, collection: current_admin.clients, label_method: :fullname, label: false, prompt: "- Elija un cliente - ", autofocus: true
     .modal-body
       %p.not-found
         No encontraste al cliente? crea por

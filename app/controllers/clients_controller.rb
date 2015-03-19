@@ -13,8 +13,8 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @client = current_admin.clients.new(params_client.merge({company_id: current_admin.company_id}))
-    @client.company_ids = current_admin.company_id
+    @client = current_admin.clients.new(params_client)
+    @client.company_id = current_admin.company_id
     if @client.save
       flash[:success] = "Cliente creado!"
       redirect_to clients_path
@@ -26,6 +26,6 @@ class ClientsController < ApplicationController
 
   private
   def params_client
-    params.require(:client).permit(:fullname, :dni, :email, :gender)
+    params.require(:client).permit(:fullname, :dni, :email, :gender, :company_ids => [])
   end
 end
