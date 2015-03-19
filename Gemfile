@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
+gem 'rails_12factor', group: :production
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -49,6 +50,8 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'bootstrap-modal-rails'
 gem 'tipsy-rails'
 
+gem 'faker'
+
 group :development do
   # gem 'dotenv-rails'
   # gem 'quicklog'
@@ -69,13 +72,10 @@ group :development do
   gem 'pry-rescue'
 end
 
-group :development, :test do
-  gem 'ffaker'
-end
 
 group :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
-  gem 'ffaker'
   gem "shoulda-matchers"
 end
+
