@@ -49,6 +49,7 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: '
 gem 'will_paginate', '~> 3.0.6'
 gem 'bootstrap-modal-rails'
 gem 'tipsy-rails'
+gem 'ffaker'
 
 group :development do
   # gem 'dotenv-rails'
@@ -70,12 +71,10 @@ group :development do
   gem 'pry-rescue'
 end
 
-gem 'ffaker'
 
 group :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
-  gem 'ffaker'
   gem "shoulda-matchers"
 end
 
