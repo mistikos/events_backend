@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# 10.times do
-#   Category.create(name: Faker::Lorem.word)
-# end
+10.times do
+  Category.create(name: Faker::Lorem.word)
+end
 
 
 20.times do
