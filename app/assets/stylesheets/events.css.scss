@@ -14,7 +14,17 @@ $border-radius-card: 4px;
 }
 
 .event-show{
-  margin-top: 40px;
+  margin-top: 10px;
+  .event-header{
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: white;
+    .title{
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+    }
+  }
+
   .event-info{
     margin-bottom: 50px;
   }
@@ -31,13 +41,20 @@ $border-radius-card: 4px;
   }
 
   .event-desc{
-    width: 50%;
-    margin-bottom: 30px;
+    width: 60%;
+    margin-bottom: 20px;
   }
 
-  .companies-list{
+  .companies-list, .receptionist-list{
     list-style: none;
     padding-left: 0px;
+    margin-top: 10px;
+    text-align: left;
+    li{
+      display: inline-block;
+      margin-right: 8px;
+    }
+
   }
 
 }
@@ -207,6 +224,30 @@ $border-radius-card: 4px;
   border-radius: 50%;
 }
 
+
+.circle-add-link{
+  display: inline-block;
+  &:hover{
+    text-decoration: none;
+  }
+  .circle-add{
+    width: 36px;
+    height: 36px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    font-size: 18px;
+    color: gray;
+    line-height: 31px;
+    text-align: center;
+    border: 1px dashed gray;
+    &:hover{
+      background-color: rgba(205, 202, 202, 0.11);
+      border: 1px dashed gray;
+    }
+  }
+}
+
 .item-event{
   border-right: 1px solid rgba(0, 0, 0, 0.06);
   border-left: 1px solid rgba(0, 0, 0, 0.06);
@@ -224,7 +265,7 @@ $border-radius-card: 4px;
     margin-top: 25px;
     .companies{
       padding-left: 0px;
-      text-align: right;
+      text-align: left;
       li{
         display: inline;
         margin-right: 8px;

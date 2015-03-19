@@ -1,55 +1,70 @@
 .event-show
-  .row.event-info
-    .col-sm-6
-      %p
-        %strong.event-title= @event.name.titleize
-        = @event.event_type.name
+  .row.event-header
+    .col-sm-12
+      .row
+        .col-sm-4.col-md-offset-4
+          %h3.title
+            = @event.name.titleize
+          %span= @event.event_type.name
+          .info-desc
+            %ul.companies-list
+              %li
+                = link_to new_event_participant_path(@event), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'circle-add-link tipsy-add'} do
+                  .circle-add
+                    +
 
-      .info-desc
-        %p.event-desc
-          = @event.description
+              - @event.companies.each do |company|
+                %li
+                  %span{title: "#{company.name}", class: 'tipsy-add'}= image_tag(Company::LOGO_URLS.sample, class: 'avatar-icon')
 
-      .info-desc
-        %p.event-desc
-          %ul.companies-list
+  .container
+    .row.event-info
+      .col-sm-6
+        .info-desc
+          %p.info-desc
+            %i.fa.fa-map-marker.fa-lg
+            = @event.full_address
+
+          %p
+            %i.fa.fa-calendar-o.fa-lg
+            = l @event.start_at, format: :short
+
+          %p
+            %i.fa.fa-clock-o.fa-lg
+            = "#{@event.duration} hrs"
+
+          %p
+            %i.fa.fa-user.fa-lg
+            = @event.creator.fullname
+
+      .col-sm-6
+        .info-desc
+          %p.event-desc
+            = @event.description
+
+        .info-desc.event-desc
+          %ul.receptionist-list
+            %li
+              %a{href: '#', class: 'circle-add-link tipsy-add', title: 'Agregar recepcionista'}
+                .circle-add
+                  +
             - @event.companies.each do |company|
               %li
                 %span{title: "#{company.name}", class: 'tipsy-add'}= image_tag(Company::LOGO_URLS.sample, class: 'avatar-icon')
 
-    .col-sm-6
-      .info-desc
-        %p
-          %strong.event-title &nbsp;
 
-        %p.info-desc
-          %i.fa.fa-map-marker.fa-lg
-          = @event.full_address
-
-        %p
-          %i.fa.fa-calendar-o.fa-lg
-          = l @event.start_at, format: :short
-
-        %p
-          %i.fa.fa-clock-o.fa-lg
-          = "#{@event.duration} hrs"
-
-        %p
-          %i.fa.fa-user.fa-lg
-          = @event.creator.fullname
-
-
-  .row
-    .col-sm-6
-      %fieldset
-        %legend
-          Mis Invitados
-          = link_to '+ Agrega un invitado', new_event_checklist_path(@event),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn-add-client'}
-        / = link_to ' Buscar', new_client_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
-        / O
-        / = link_to '+ Crear invitado', new_client_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
-        / = render 'checklists/form'
-        %ul.checklist-list
-          - unless @checklists.blank?
-            = render @checklists
-          - else
-            Aún no tienes ningun invitado
+    .row
+      .col-sm-6
+        %fieldset
+          %legend
+            Mis Invitados
+            = link_to '+ Agrega un invitado', new_event_checklist_path(@event),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn-add-client'}
+          / = link_to ' Buscar', new_client_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
+          / O
+          / = link_to '+ Crear invitado', new_client_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
+          / = render 'checklists/form'
+          %ul.checklist-list
+            - unless @checklists.blank?
+              = render @checklists
+            - else
+              Aún no tienes ningun invitado

@@ -1,12 +1,13 @@
-%h2 Mis clientes
-= link_to 'Nuevo cliente', new_client_path
-%table.table.table-condensed
-  %thead
-    %tr
-      %th Nombre completo
-      %th Email
-      %th DNI
-      %th Genero
-      %th Creado
-  %tbody
-    = render @clients
+.container
+  %h2 Mis clientes
+  = link_to 'Nuevo cliente', new_client_path
+  %table.table.table-condensed
+    %thead
+      %tr
+        %th Nombre completo
+        %th Email
+        %th DNI
+        %th Genero
+        %th Creado
+    %tbody
+      = render @clients

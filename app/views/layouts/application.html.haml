@@ -8,7 +8,7 @@
   %body
     - if admin_signed_in?
       = render 'layouts/header'
-      .container
+      .container-fluid
         - flash.each do |message_type, message|
           %div{class: "#{flash_class(message_type)}"}= message
         = yield

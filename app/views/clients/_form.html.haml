@@ -1,4 +1,5 @@
 = simple_form_for @client do |f|
+  = hidden_field_tag "client[company_ids][]", current_admin.company_id
   = f.input :fullname, autofocus: true
   = f.input :email
   = f.input :dni

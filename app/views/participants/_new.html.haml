@@ -1,0 +1,14 @@
+.add-clients-to-checklist
+  = simple_form_for [@event, Participant.new] do |f|
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      .icon-add-client
+        %i.fa.fa-building-o
+      %h3.title-add Agrega Compañias a tu evento
+      = f.association :company, prompt: "- Elija una Compañia - ", autofocus: true, label: false
+    .modal-body
+      %p.not-found
+        No encontraste la compañia arriba? invita por email
+        = f.input :email, label: false, input_html: {placeholder: 'Envia una invitacion', type: 'email'}
+    .modal-footer
+      = f.submit 'AGREGAR', class: 'btn btn-primary'
