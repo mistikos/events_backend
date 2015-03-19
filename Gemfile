@@ -49,6 +49,7 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: '
 gem 'will_paginate', '~> 3.0.6'
 gem 'bootstrap-modal-rails'
 gem 'tipsy-rails'
+
 gem 'ffaker'
 
 group :development do
