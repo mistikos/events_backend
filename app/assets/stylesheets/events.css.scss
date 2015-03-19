@@ -152,15 +152,15 @@ $border-radius-card: 4px;
       }
 
       .participant:before{
-        content: url('icons/participant.png');
+        content: url(<%= asset_path 'icons/participant.png' %>);
       }
 
       .company:before{
-        content: url('icons/company.png');
+        content: url(<%= asset_path 'icons/company.png' %>);
       }
 
       .recepcionist:before{
-        content: url('icons/recepcionist.png');
+        content: url(<%= asset_path 'icons/recepcionist.png' %>);
       }
 
       .icon-text{
