@@ -70,9 +70,7 @@ group :development do
   gem 'pry-rescue'
 end
 
-group :development, :test do
-  gem 'ffaker'
-end
+gem 'ffaker'
 
 group :test do
   gem "rspec-rails"
