@@ -50,7 +50,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'bootstrap-modal-rails'
 gem 'tipsy-rails'
 
-gem 'ffaker'
+gem 'faker'
 
 group :development do
   # gem 'dotenv-rails'
