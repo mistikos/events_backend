@@ -1,5 +1,5 @@
 .row.login
-  .col-md-4.col-md-offset-4
+  .col-md-5.col-md-offset-4
     %h2 Olvidaste tu contraseña?
     = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
       = f.error_notification
