@@ -151,18 +151,6 @@ $border-radius-card: 4px;
         font-weight: 400;
       }
 
-      .participant:before{
-        content: url(<%= asset_path 'icons/participant.png' %>);
-      }
-
-      .company:before{
-        content: url(<%= asset_path 'icons/company.png' %>);
-      }
-
-      .recepcionist:before{
-        content: url(<%= asset_path 'icons/recepcionist.png' %>);
-      }
-
       .icon-text{
         display: block;
         font-size: 14px;

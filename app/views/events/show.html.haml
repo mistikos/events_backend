@@ -59,10 +59,7 @@
           %legend
             Mis Invitados
             = link_to '+ Agrega un invitado', new_event_checklist_path(@event),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn-add-client'}
-          / = link_to ' Buscar', new_client_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
-          / O
-          / = link_to '+ Crear invitado', new_client_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
-          / = render 'checklists/form'
+
           %ul.checklist-list
             - unless @checklists.blank?
               = render @checklists

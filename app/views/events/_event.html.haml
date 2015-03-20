@@ -17,26 +17,29 @@
         - if event.companies.size > 6
           %li.aditional-company= "+#{event.companies.size - 6}"
 
-        - event.companies.limit(6).each do |company|
+        - event.companies.to_a.take(6).each do |company|
           %li
             %span{title: "#{company.name}", class: 'tipsy-add'}= image_tag(Company::LOGO_URLS.sample, class: 'avatar-icon')
 
   .options
     .row
       .col-sm-4.col
-        %span.participant.icon-option
+        %span.icon-option
+          %i.fa.fa-user
           = event.clients.size
         %span.icon-text
           Invitados
 
       .col-sm-4.middle.col
-        %span.company.icon-option
+        %span.icon-option
+          %i.fa.fa-building
           = event.companies.size
         %span.icon-text
           Organizadores
 
       .col-sm-4.col
-        %span.recepcionist.icon-option
+        %span.icon-option
+          %i.fa.fa-street-view
           = event.receptionists.size
         %span.icon-text
           Recepcionistas
