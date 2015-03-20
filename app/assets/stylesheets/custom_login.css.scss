@@ -30,14 +30,15 @@ textarea {
 }
 
 .btn-primary{
-  background-color: #26AE90;
-  color: rgb(247, 246, 246);
+  background-color: #ECEEF1;
+  color: #49c575;
   border: 1px solid rgb(178, 234, 190);
-  padding: 15px 50px;
-  font-size: 15px;
+  padding: 15px 30px;
+  font-size: 16px;
   &:hover{
-    background-color: #3FBE59;
+    background-color: #ECEEF1;
     border: 1px solid rgb(178, 234, 190);
+    color: #49c575;
   }
 }
 
@@ -68,3 +69,9 @@ textarea {
   border-top: 1px solid rgba(221, 221, 221, 0.35);
   font-size: 13px;
 }
+
+input[type='email'], input[type='password']{
+    font-size: 16px;
+    color: gray;
+    height: 50px;
+ }

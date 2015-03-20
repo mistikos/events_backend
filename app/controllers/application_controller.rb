@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_admin!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  layout :layout_by_resource
+
   helper_method :current_company
 
   private
@@ -21,6 +23,14 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:dni, :fullname, :company_id, :email, :password, :password_confirmation, :current_password) }
     else
       super
+    end
+  end
+
+  def layout_by_resource
+    if devise_controller? && resource_name == :admin && (%w(sessions passwords).include? controller_name)
+      "login"
+    else
+      "application"
     end
   end
 

@@ -13,7 +13,8 @@
           %div{class: "#{flash_class(message_type)}"}= message
         = yield
     - else
-      = yield
+      .container
+        = yield
     #modal-window.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog"}
     = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?libraries=places'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
