@@ -9,7 +9,7 @@
           .info-desc
             %ul.companies-list
               %li
-                = link_to new_event_participant_path(@event), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'circle-add-link tipsy-add'} do
+                = link_to new_event_participant_path(@event), {title: 'Agregar compañias', :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'circle-add-link tipsy-add'} do
                   .circle-add
                     +
 
@@ -45,12 +45,12 @@
         .info-desc.event-desc
           %ul.receptionist-list
             %li
-              %a{href: '#', class: 'circle-add-link tipsy-add', title: 'Agregar recepcionista'}
+              = link_to new_event_event_receptionist_path(@event), {title: 'Agregar recepcionista', :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'circle-add-link tipsy-add'} do
                 .circle-add
                   +
-            - @event.companies.each do |company|
+            - @event.receptionists.each do |receptionist|
               %li
-                %span{title: "#{company.name}", class: 'tipsy-add'}= image_tag(Company::LOGO_URLS.sample, class: 'avatar-icon')
+                %span{title: "#{receptionist.fullname}", class: 'tipsy-add'}= image_tag(Company::LOGO_URLS.sample, class: 'avatar-icon')
 
 
     .row

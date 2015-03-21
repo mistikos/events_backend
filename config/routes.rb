@@ -2,7 +2,15 @@ Rails.application.routes.draw do
 
   scope constraints: { subdomain: 'manager'} do
 
-    # devise_for :users
+    resources :users, only: [:index, :create, :new]
+
+    devise_for :users, :skip => [:registrations, :sessions]
+
+    as :user do
+      get "/login" => "devise/sessions#new", :as => :new_user_session
+      post "/login" => "devise/sessions#create", :as => :user_session
+      delete "/logout" => "devise/sessions#destroy", :as => :destroy_user_session
+    end
 
     devise_for :admins, controllers: { registrations: "admins/registrations" }
 
@@ -21,6 +29,7 @@ Rails.application.routes.draw do
     resources :events do
       get :past, on: :collection
       resources :participants, only: [:create, :new]
+      resources :event_receptionists, only: [:create, :new]
       resources :checklists, only: [:create, :new, :destroy]
     end
     resources :admins, :only => [:show]

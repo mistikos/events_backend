@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+
   def index
     @events = current_company.events.coming.includes(:clients, :creator, :event_type, :companies, :receptionists).paginate(:page => params[:page], :per_page => 12).order(:start_at)
   end

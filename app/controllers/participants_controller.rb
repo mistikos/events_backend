@@ -1,9 +1,6 @@
 class ParticipantsController < ApplicationController
   before_action :set_event, only: [:new, :create]
 
-  def index
-  end
-
   def new
     respond_to do |format|
       format.js

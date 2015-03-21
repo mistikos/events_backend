@@ -1,7 +1,19 @@
 .container
-  %h2 Mis clientes
-  = link_to 'Nuevo cliente', new_client_path
-  %table.table.table-condensed
+  .wrapper-title
+    %h2.title Mis clientes
+    #searchWrapper
+      #global-search-form
+        %form.navbar-form{:role => "search"}
+          .input-group.add-on
+            %input#srch-term.form-control{:name => "srch-term", :placeholder => "Search", :type => "text"}/
+            .input-group-btn
+              %button.btn.btn-default{:type => "submit"}
+                %i.glyphicon.glyphicon-search
+      .add-client
+        = link_to 'Nuevo cliente', new_client_path, class: 'btn btn-add'
+
+
+  %table.table.table-custom
     %thead
       %tr
         %th Nombre completo
@@ -11,3 +23,6 @@
         %th Creado
     %tbody
       = render @clients
+
+  .paginate
+    = will_paginate @events

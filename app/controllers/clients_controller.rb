@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
 
   def index
-    @clients = current_company.clients.order(created_at: :desc)
+    @clients = current_company.clients.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10).order(:created_at)
   end
 
   def new
