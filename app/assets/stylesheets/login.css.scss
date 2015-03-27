@@ -14,7 +14,7 @@
  */
 
  body{
-    background: url('bg.jpeg') no-repeat center;
+    background: asset-url('bg.jpeg');
     background-size: cover;
     color: white;
     min-height: 580px;
